@@ -6,7 +6,7 @@ COPY . /app
 
 RUN yarn install --registry https://registry.npmmirror.com/ && yarn run build
 
-FROM node:lts-alpine
+FROM node:22.15.1-alpine3.21
 
 COPY --from=BUILD_IMAGE /app/configs /app/configs
 COPY --from=BUILD_IMAGE /app/package.json /app/package.json
